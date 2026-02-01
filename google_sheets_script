@@ -1,0 +1,66 @@
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+    // 1. Parse incoming data
+    var rawData = e.postData.contents;
+    var jsonData = JSON.parse(rawData);
+
+    // --- 🛑 Honeypot bot check ---
+    if (jsonData.company_website && jsonData.company_website !== "") {
+      return ContentService.createTextOutput("Bot detected");
+    }
+
+    // --- ⏱️ Rate limiting (1 submission per minute per payload) ---
+    var cache = CacheService.getScriptCache();
+    var fingerprint = Utilities.base64Encode(rawData).slice(0, 50);
+
+    if (cache.get(fingerprint)) {
+      return ContentService.createTextOutput("Rate limited");
+    }
+    cache.put(fingerprint, "1", 60);
+
+    // 2. Read headers from first row
+    var headers = sheet
+      .getRange(1, 1, 1, sheet.getLastColumn())
+      .getValues()[0];
+
+    // 3. Map JSON data to sheet columns
+    var newRow = headers.map(function(header) {
+      var key = header.toString().trim();
+
+      // Auto timestamp column
+      if (key === 'timestamp') {
+        return new Date();
+      }
+
+      var value = jsonData[key];
+
+      // Handle checkbox / multi-select fields
+      if (Array.isArray(value)) {
+        return value.join(", ");
+      }
+
+      // Fallback for empty / undefined values
+      return value !== undefined ? value : '';
+    });
+
+    // 4. Save to sheet
+    sheet.appendRow(newRow);
+
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success" })
+    ).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", error: err.message })
+    ).setMimeType(ContentService.MimeType.JSON);
+
+  } finally {
+    lock.releaseLock();
+  }
+}
