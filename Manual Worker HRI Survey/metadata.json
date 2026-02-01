@@ -1,0 +1,5 @@
+{
+  "name": "Modular Survey App HRI Manual Worker",
+  "description": "A professional, modular survey application built with React and TypeScript. Features reusable Likert scale components, distinct section layouts, and local data persistence with CSV export capabilities.",
+  "requestFramePermissions": []
+}
