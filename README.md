@@ -11,6 +11,7 @@ HRIT applies the Open and Responsible Research and Innovation (ORRI) approach to
 | Duration | November 2025 to October 2026 |
 | Evidence base | 5 manufacturing SMEs, 30 in-depth interviews, 50+ survey responses, 3 participatory workshops with 45+ participants |
 | Licence | Apache 2.0 (see [LICENSE](LICENSE) and [NOTICE](NOTICE)) |
+| Project page | https://parityplatform.com/projects/hrit/ |
 
 ## Repository contents
 
