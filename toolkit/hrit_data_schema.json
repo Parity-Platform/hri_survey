@@ -1,0 +1,1166 @@
+{
+  "schema": "hrit-survey-schema",
+  "version": "1.0.0",
+  "title": "HRIT Toolkit: machine-readable schema of the four HRI questionnaires",
+  "project": "HRIT, Human Robot Interaction Transparency (REINFORCING 3rd ORRI Incubator, GA 101094435)",
+  "authors": [
+    "Parity Platform P.C.",
+    "University of Patras"
+  ],
+  "license": "Apache-2.0",
+  "repository": "https://github.com/Parity-Platform/hri_survey",
+  "conventions": {
+    "likert_1_5": "Integer 1 to 5. 1 is the first label in 'scale', 5 the last. Empty if not answered or not shown.",
+    "multi_choice": "Stored as a comma separated string by google_sheets_script.",
+    "shown_if": "Condition under which a field is displayed; otherwise the value is empty.",
+    "published": "false means the field is removed or coarsened before publication (see 08_data_and_anonymisation.md)."
+  },
+  "surveys": [
+    {
+      "id": "manual_worker",
+      "folder": "Manual Worker HRI Survey",
+      "title": "HRI Manual Worker Interaction Survey",
+      "app_source": "hri_manual_worker_survey",
+      "audience": "Production line workers who work, or may soon work, alongside collaborative robots",
+      "sections": [
+        {
+          "title": "1. General Information",
+          "fields": [
+            {
+              "key": "department",
+              "question": "Department:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Production / Assembly",
+                "Logistics / Warehousing",
+                "Quality Control",
+                "Maintenance / Engineering",
+                "Management / Administration",
+                "Other"
+              ],
+              "published": true
+            },
+            {
+              "key": "email",
+              "question": "Email Address (Optional)",
+              "type": "email",
+              "required": false,
+              "personal_data": true,
+              "published": false,
+              "note": "Optional contact field. Removed before any publication or analysis export."
+            },
+            {
+              "key": "country",
+              "question": "Country:",
+              "type": "single_choice",
+              "required": true,
+              "options": "ISO country list plus Other",
+              "published": true
+            },
+            {
+              "key": "years_experience",
+              "question": "Years of work experience",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "0-5 years",
+                "6-10 years",
+                "11-15 years",
+                "15+ years"
+              ],
+              "published": true
+            },
+            {
+              "key": "interaction_frequency",
+              "question": "How often do you interact with robots in your work environment?",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Daily",
+                "Weekly",
+                "Rarely",
+                "Never"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "2. Safety & Perceptions",
+          "fields": [
+            {
+              "key": "risk_felt",
+              "question": "Have you ever felt at risk due to robotic behaviour?",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "published": true
+            },
+            {
+              "key": "risk_severity",
+              "question": "Please rate the severity of the perceived risk:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Low",
+                "2": "Low",
+                "3": "Moderate",
+                "4": "High",
+                "5": "Very High"
+              },
+              "shown_if": "risk_felt == 'Yes'",
+              "published": true
+            },
+            {
+              "key": "perception_safety",
+              "question": "I feel safe when working in close proximity to a robot.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "perception_predictability",
+              "question": "I understand how the robot behaves and can predict what it will do next.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "perception_trust",
+              "question": "I trust the robot to perform its task reliably without making mistakes.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "3. Workload & Stress",
+          "fields": [
+            {
+              "key": "productivity_impact",
+              "question": "Working with robots has increased my overall productivity.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "stress_unexpected",
+              "question": "I feel stressed or anxious when the robot performs unexpected actions.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "mental_load",
+              "question": "I find it mentally challenging to cooperate and coordinate with the robot.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "physical_strain",
+              "question": "The interaction with the robot increases my physical strain or fatigue.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "4. Training & Confidence",
+          "fields": [
+            {
+              "key": "training_received",
+              "question": "I have received training before using the robot.",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "published": true
+            },
+            {
+              "key": "training_quality",
+              "question": "Rate your training quality overall:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Poor",
+                "2": "Fair",
+                "3": "Average",
+                "4": "Good",
+                "5": "Excellent"
+              },
+              "shown_if": "training_received == 'Yes'",
+              "published": true
+            },
+            {
+              "key": "training_relevance",
+              "question": "The training I received prepared me well for real-world tasks involving the robot.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "shown_if": "training_received == 'Yes'",
+              "published": true
+            },
+            {
+              "key": "confidence_level",
+              "question": "I feel confident operating or interacting with the robot.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "confidence_autonomy",
+              "question": "I feel confident enough to operate the robot without needing constant supervision or assistance.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "System fields",
+          "fields": [
+            {
+              "key": "app_source",
+              "type": "string",
+              "required": true,
+              "system": true,
+              "note": "Identifies the questionnaire that produced the record.",
+              "published": true
+            },
+            {
+              "key": "timestamp",
+              "type": "datetime_iso8601",
+              "required": true,
+              "system": true,
+              "published": false,
+              "note": "Submission time. Coarsened to year and month in published exports."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operator",
+      "folder": "Operator HRI Interaction Survey",
+      "title": "HRI Operator/Engineer Interaction Survey",
+      "app_source": "hri_operator_survey",
+      "audience": "Technical operators and engineers who interact directly with the robot",
+      "sections": [
+        {
+          "title": "1. General Information",
+          "fields": [
+            {
+              "key": "department",
+              "question": "Department:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Production / Assembly",
+                "Logistics / Warehousing",
+                "Quality Control",
+                "Maintenance / Engineering",
+                "Management / Administration",
+                "Other"
+              ],
+              "published": true
+            },
+            {
+              "key": "email",
+              "question": "Email Address (Optional)",
+              "type": "email",
+              "required": false,
+              "personal_data": true,
+              "published": false,
+              "note": "Optional contact field. Removed before any publication or analysis export."
+            },
+            {
+              "key": "country",
+              "question": "Country:",
+              "type": "single_choice",
+              "required": true,
+              "options": "ISO country list plus Other",
+              "published": true
+            },
+            {
+              "key": "years_experience",
+              "question": "Years of work experience",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "0 - 5 years",
+                "6-10 years",
+                "11-15 years",
+                "15+ years",
+                "More"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "2. Usability & Interface",
+          "fields": [
+            {
+              "key": "training_received",
+              "question": "I have received training before using the robot's operating tool.",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Yes",
+                "No"
+              ],
+              "published": true
+            },
+            {
+              "key": "training_quality",
+              "question": "If Yes, rate your training quality overall:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Poor",
+                "2": "Fair",
+                "3": "Average",
+                "4": "Good",
+                "5": "Excellent"
+              },
+              "shown_if": "training_received == 'Yes'",
+              "published": true
+            },
+            {
+              "key": "interface_intuitive",
+              "question": "The robot's interface (e.g., GUI, controller hardware) is intuitive and easy to use for all required operational tasks.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "interface_safety_confidence",
+              "question": "In any given time, how confident are you about the robot's interface ability to ensure safety if needed?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not at all Confident",
+                "2": "Slightly Confident",
+                "3": "Moderately Confident",
+                "4": "Confident",
+                "5": "Very Confident"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "3. Cognitive Load & Complexity",
+          "fields": [
+            {
+              "key": "robot_complexity",
+              "question": "How complex is it to operate the robot?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Complex",
+                "2": "Complex",
+                "3": "Neutral",
+                "4": "Easy",
+                "5": "Very Easy"
+              },
+              "published": true
+            },
+            {
+              "key": "assistance_frequency",
+              "question": "How often do you need documentation or assistance?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Rarely",
+                "2": "Occasionally",
+                "3": "Sometimes",
+                "4": "Often",
+                "5": "Very Often"
+              },
+              "published": true
+            },
+            {
+              "key": "mental_effort_monitoring",
+              "question": "How much mental effort is required to monitor the robot during shared tasks?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Low Effort",
+                "2": "Low Effort",
+                "3": "Moderate Effort",
+                "4": "High Effort",
+                "5": "Very High Effort"
+              },
+              "published": true
+            },
+            {
+              "key": "information_overload",
+              "question": "How often does the system used to operate the robot overload you with information?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Rarely",
+                "2": "Occasionally",
+                "3": "Sometimes",
+                "4": "Often",
+                "5": "Very Often"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "4. Failures & Recovery",
+          "fields": [
+            {
+              "key": "robot_failure_frequency",
+              "question": "How often do robots fail or require human intervention?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Rarely",
+                "2": "Occasionally",
+                "3": "Sometimes",
+                "4": "Often",
+                "5": "Very Often"
+              },
+              "published": true
+            },
+            {
+              "key": "troubleshooting_ease",
+              "question": "How easy is it to troubleshoot potential failures of the robot or the robot's interface?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Hard",
+                "2": "Hard",
+                "3": "Neutral",
+                "4": "Easy",
+                "5": "Very Easy"
+              },
+              "published": true
+            },
+            {
+              "key": "hmi_recovery_tools",
+              "question": "The Human-Machine-Interface (HMI) provides the necessary tools and access to safely and efficiently recover from a failure.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "5. Psychological Impact & Trust",
+          "fields": [
+            {
+              "key": "sense_of_control",
+              "question": "I feel in control of the robot's actions, rather than the robot controlling my workflow.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "job_security_confidence",
+              "question": "I am confident that the introduction of more robots like this will not negatively impact my long-term job security.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "error_responsibility",
+              "question": "When the system makes a mistake, I feel like I am the one held responsible for the error.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "skill_enhancement",
+              "question": "I feel that operating this robot enhances my professional skills rather than making my job feel repetitive or 'robotic'.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "System fields",
+          "fields": [
+            {
+              "key": "app_source",
+              "type": "string",
+              "required": true,
+              "system": true,
+              "note": "Identifies the questionnaire that produced the record.",
+              "published": true
+            },
+            {
+              "key": "timestamp",
+              "type": "datetime_iso8601",
+              "required": true,
+              "system": true,
+              "published": false,
+              "note": "Submission time. Coarsened to year and month in published exports."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supervisor",
+      "folder": "Supervisor HRI Interaction Survey",
+      "title": "HRI Manager/Supervisor Survey",
+      "app_source": "hri_manager_survey",
+      "audience": "Line supervisors, team leaders and managers of teams working with robots",
+      "sections": [
+        {
+          "title": "1. General Information",
+          "fields": [
+            {
+              "key": "department",
+              "question": "Department:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Production / Assembly",
+                "Logistics / Warehousing",
+                "Quality Control",
+                "Maintenance / Engineering",
+                "Management / Administration",
+                "Other"
+              ],
+              "published": true
+            },
+            {
+              "key": "email",
+              "question": "Email Address (Optional):",
+              "type": "email",
+              "required": false,
+              "personal_data": true,
+              "published": false,
+              "note": "Optional contact field. Removed before any publication or analysis export."
+            },
+            {
+              "key": "country",
+              "question": "Country:",
+              "type": "single_choice",
+              "required": true,
+              "options": "ISO country list plus Other",
+              "published": true
+            },
+            {
+              "key": "operation_size",
+              "question": "Size of operation:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "1-50 employees",
+                "51-200 employees",
+                "201-500 employees",
+                "500+ employees"
+              ],
+              "published": true
+            },
+            {
+              "key": "employees_interacting",
+              "question": "Number of employees interacting with robots:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "1-30",
+                "31-60",
+                "61-100",
+                "More"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "2. Reasons for Robot Adoption",
+          "fields": [
+            {
+              "key": "adoption_reasons",
+              "question": "What are the main reasons for adopting robots in the workforce?",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Reduce physical strain",
+                "Reduce labour costs",
+                "Increase quality",
+                "Improve safety",
+                "Speed up production",
+                "Other"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "3. Evaluation of impact after robot integration",
+          "fields": [
+            {
+              "key": "impact_productivity",
+              "question": "Productivity:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Very strong"
+              },
+              "published": true
+            },
+            {
+              "key": "impact_safety",
+              "question": "Worker Safety:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Very strong"
+              },
+              "published": true
+            },
+            {
+              "key": "impact_quality",
+              "question": "Product Quality:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Very strong"
+              },
+              "published": true
+            },
+            {
+              "key": "impact_satisfaction",
+              "question": "Worker Satisfaction:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Very strong"
+              },
+              "published": true
+            },
+            {
+              "key": "impact_cost",
+              "question": "Cost Reduction:",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Very strong"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "4. Final Evaluation",
+          "fields": [
+            {
+              "key": "team_adaptation_rating",
+              "question": "How would you rate your team's overall adaptation to working alongside robots?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very Poor",
+                "2": "Poor",
+                "3": "Neutral",
+                "4": "Strong",
+                "5": "Excellent"
+              },
+              "published": true
+            },
+            {
+              "key": "supervisor_responsibility_changes",
+              "question": "How has robot integration changed your responsibilities as a supervisor?",
+              "type": "multi_choice",
+              "required": false,
+              "options": [
+                "More time spent on coordinating workflows",
+                "Increased need for technical oversight",
+                "Reduced involvement in repetitive tasks",
+                "More time spent on employee support and training",
+                "No significant change"
+              ],
+              "published": true
+            },
+            {
+              "key": "critical_support_needed",
+              "question": "What type of support would be most critical for ensuring a smooth and successful further integration of robots in your department?",
+              "type": "multi_choice",
+              "required": false,
+              "options": [
+                "Additional staff training",
+                "Technical support from robot suppliers",
+                "More detailed performance data and analytics",
+                "Financial resources for upgrades and maintenance",
+                "Clearer cross-department coordination",
+                "Other"
+              ],
+              "published": true
+            },
+            {
+              "key": "integration_improvements",
+              "question": "What aspect of the integration process would you improve if the transition were repeated?",
+              "type": "multi_choice",
+              "required": false,
+              "options": [
+                "Improve training and upskilling of employees",
+                "Increase the testing and calibration period before full deployment",
+                "Ensure faster or more reliable technical support during early stages",
+                "Better planning of workflow redesign around robots",
+                "No major improvements needed, the transition was smooth",
+                "Other"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "System fields",
+          "fields": [
+            {
+              "key": "app_source",
+              "type": "string",
+              "required": true,
+              "system": true,
+              "note": "Identifies the questionnaire that produced the record.",
+              "published": true
+            },
+            {
+              "key": "timestamp",
+              "type": "datetime_iso8601",
+              "required": true,
+              "system": true,
+              "published": false,
+              "note": "Submission time. Coarsened to year and month in published exports."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "future_impact",
+      "folder": "Future Impact HRI Supervisor",
+      "title": "Future impact of HRI integration",
+      "app_source": "hri_future_impact_survey",
+      "audience": "Supervisors and managers assessing medium and long term effects of HRI",
+      "sections": [
+        {
+          "title": "1. General Information",
+          "fields": [
+            {
+              "key": "department",
+              "question": "Department:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Production / Assembly",
+                "Logistics / Warehousing",
+                "Quality Control",
+                "Maintenance / Engineering",
+                "Management / Administration",
+                "Other"
+              ],
+              "published": true
+            },
+            {
+              "key": "email",
+              "question": "Email Address (Optional):",
+              "type": "email",
+              "required": false,
+              "personal_data": true,
+              "published": false,
+              "note": "Optional contact field. Removed before any publication or analysis export."
+            },
+            {
+              "key": "country",
+              "question": "Country:",
+              "type": "single_choice",
+              "required": true,
+              "options": "ISO country list plus Other",
+              "published": true
+            },
+            {
+              "key": "years_experience",
+              "question": "Years of work experience:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "0-5",
+                "6-10",
+                "11-15",
+                "16-20",
+                "More"
+              ],
+              "published": true
+            },
+            {
+              "key": "size_of_operation",
+              "question": "Size of operation:",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "1-50 employees",
+                "51-200 employees",
+                "201-500 employees",
+                "500+ employees"
+              ],
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "2. Drivers for Automation",
+          "fields": [
+            {
+              "key": "driver_productivity",
+              "question": "Improving productivity",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a factor",
+                "2": "Minor factor",
+                "3": "Moderate factor",
+                "4": "Significant factor",
+                "5": "Primary Driver"
+              },
+              "published": true
+            },
+            {
+              "key": "driver_costs",
+              "question": "Reducing long-term costs",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a factor",
+                "2": "Minor factor",
+                "3": "Moderate factor",
+                "4": "Significant factor",
+                "5": "Primary Driver"
+              },
+              "published": true
+            },
+            {
+              "key": "driver_dependency",
+              "question": "Reducing dependency on manual labor",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a factor",
+                "2": "Minor factor",
+                "3": "Moderate factor",
+                "4": "Significant factor",
+                "5": "Primary Driver"
+              },
+              "published": true
+            },
+            {
+              "key": "driver_safety",
+              "question": "Enhancing worker safety",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a factor",
+                "2": "Minor factor",
+                "3": "Moderate factor",
+                "4": "Significant factor",
+                "5": "Primary Driver"
+              },
+              "published": true
+            },
+            {
+              "key": "driver_labor_shortage",
+              "question": "Mitigating labor shortages",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a factor",
+                "2": "Minor factor",
+                "3": "Moderate factor",
+                "4": "Significant factor",
+                "5": "Primary Driver"
+              },
+              "published": true
+            },
+            {
+              "key": "driver_innovation_pressure",
+              "question": "How much does the pressure to appear \"modern\" or \"innovative\" influence the decision to adopt robots?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not at all",
+                "2": "Slightly",
+                "3": "Moderately",
+                "4": "Very much",
+                "5": "Significantly"
+              },
+              "published": true
+            },
+            {
+              "key": "goal_minimize_turnover",
+              "question": "How important is the goal of minimizing the impact of staff turnover and labour shortages?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not a Priority",
+                "2": "Low Priority",
+                "3": "Medium Priority",
+                "4": "High Priority",
+                "5": "Critical Priority"
+              },
+              "published": true
+            },
+            {
+              "key": "responsibility_comfort",
+              "question": "How comfortable do you feel taking responsibility for decisions made by automated or semi-autonomous systems under your supervision?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Very uncomfortable",
+                "2": "Uncomfortable",
+                "3": "Neutral",
+                "4": "Comfortable",
+                "5": "Very Comfortable"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "3. Readiness & Concerns",
+          "fields": [
+            {
+              "key": "preparedness_level",
+              "question": "How prepared do you feel your department is in terms of communication, training, and coordination required for a smooth transition to automation?",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Fully prepared",
+                "Mostly prepared",
+                "Partially prepared",
+                "Minimally prepared",
+                "Not prepared at all"
+              ],
+              "published": true
+            },
+            {
+              "key": "biggest_concern",
+              "question": "As a supervisor, what is your biggest concern regarding this transition?",
+              "type": "single_choice",
+              "required": true,
+              "options": [
+                "Morale Drop",
+                "Competence gap",
+                "Performance Skepticism",
+                "Resistance in the technology"
+              ],
+              "published": true
+            },
+            {
+              "key": "team_trust_robot_ability",
+              "question": "I believe my team will trust the robot's ability to perform tasks better than they can.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "managing_mental_demand",
+              "question": "I believe that managing a robotic workforce will be less mentally demanding than managing a purely manual workforce.",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Strongly Disagree",
+                "2": "Disagree",
+                "3": "Neutral",
+                "4": "Agree",
+                "5": "Strongly Agree"
+              },
+              "published": true
+            },
+            {
+              "key": "importance_understanding_limitations",
+              "question": "Before approving robot integration, how important is it for you to clearly understand the robot's limitations, failure modes, and edge cases?",
+              "type": "likert_1_5",
+              "required": true,
+              "scale": {
+                "1": "Not Important",
+                "2": "Slightly Important",
+                "3": "Moderately Important",
+                "4": "Very Important",
+                "5": "Extremely Important"
+              },
+              "published": true
+            }
+          ]
+        },
+        {
+          "title": "System fields",
+          "fields": [
+            {
+              "key": "app_source",
+              "type": "string",
+              "required": true,
+              "system": true,
+              "note": "Identifies the questionnaire that produced the record.",
+              "published": true
+            },
+            {
+              "key": "timestamp",
+              "type": "datetime_iso8601",
+              "required": true,
+              "system": true,
+              "published": false,
+              "note": "Submission time. Coarsened to year and month in published exports."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

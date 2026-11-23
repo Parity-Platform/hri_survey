@@ -1,0 +1,3 @@
+participant_code,stakeholder_group,department,shift,gender,age_band,language,prior_robot_exposure,consent_survey,consent_interview,consent_recording,consent_workshop,consent_quotes,consent_open_data,survey_completed,interview_date,workshop_id,withdrawn,notes
+P001,manual_worker,Production / Assembly,morning,female,30-49,el,rarely,yes,yes,no,yes,yes,yes,yes,,W1,no,
+P002,operator,Maintenance / Engineering,afternoon,male,under_30,el,daily,yes,no,no,yes,yes,yes,yes,,W1,no,
