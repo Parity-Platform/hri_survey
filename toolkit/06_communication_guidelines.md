@@ -29,36 +29,36 @@ These guidelines translate the HRIT findings into practical communication rules 
 
 ### 3.1 Announcing the consultation
 
-> <Company name> is exploring whether collaborative robots could support work in <area>. No decision has been made. The people who would work with this technology know the work best, so <Company name> is asking for your views first, through a short questionnaire, interviews and a workshop run by <facilitating organisation>. Results will be shared with everyone by <date>, and the company will explain how your input was used.
+> [Company name] is exploring whether collaborative robots could support work in [area]. No decision has been made. The people who would work with this technology know the work best, so [Company name] is asking for your views first, through a short questionnaire, interviews and a workshop run by [facilitating organisation]. Results will be shared with everyone by [date], and the company will explain how your input was used.
 
 ### 3.2 Responding to concern about job loss
 
-> The concern is understood and it was raised by many participants. Here is what is known today: the robot would take over <tasks>. These tasks currently occupy about <share> of the work in <area>. <Company name> commits to <no redundancies linked to this project / redeployment to roles X and Y / a retraining offer>. Training for <new tasks> will be offered to <who> starting <date>, during paid time. Questions can be raised with <contact> or anonymously at <channel>.
+> The concern is understood and it was raised by many participants. Here is what is known today: the robot would take over [tasks]. These tasks currently occupy about [share] of the work in [area]. [Company name] commits to [no redundancies linked to this project / redeployment to roles X and Y / a retraining offer]. Training for [new tasks] will be offered to [who] starting [date], during paid time. Questions can be raised with [contact] or anonymously at [channel].
 
 Use only commitments that management has approved in writing. If no commitment exists yet, say when the decision will be taken.
 
 ### 3.3 Retraining offer
 
-> Staff in <area> are offered training in <robot operation / quality monitoring / maintenance>. The programme takes <hours> over <weeks>, is delivered by <provider> on the line and in a training room, and is paid working time. Places are allocated first to staff whose current tasks change most. Sign-up: <contact> by <date>.
+> Staff in [area] are offered training in [robot operation / quality monitoring / maintenance]. The programme takes [hours] over [weeks], is delivered by [provider] on the line and in a training room, and is paid working time. Places are allocated first to staff whose current tasks change most. Sign-up: [contact] by [date].
 
 ### 3.4 Reporting back after the consultation
 
-> Thank you to the <number> colleagues who took part. The main points were: <three points>. Based on this input, <Company name> has decided to <decision>, and will <changes made because of the input>. Points that were raised but not adopted, and the reasons, are listed in the attached report. The full anonymous results are available at <link>.
+> Thank you to the [number] colleagues who took part. The main points were: [three points]. Based on this input, [Company name] has decided to [decision], and will [changes made because of the input]. Points that were raised but not adopted, and the reasons, are listed in the attached report. The full anonymous results are available at [link].
 
 ### 3.5 Escalation card (print and place at the workstation)
 
 > **If the robot behaves unexpectedly:**
-> 1. Press the emergency stop at <location>.
+> 1. Press the emergency stop at [location].
 > 2. Move to a safe distance.
-> 3. Call <name / role> at <extension>.
-> 4. Report the event in <log / form>; reports are used to improve the system, not to blame staff.
+> 3. Call [name / role] at [extension].
+> 4. Report the event in [log / form]; reports are used to improve the system, not to blame staff.
 
 ## 4. Language to avoid and alternatives
 
 | Avoid | Use instead |
 |---|---|
 | "Nothing will change for you." | "These tasks will change; these stay the same." |
-| "The robot will replace manual work." | "The robot will take over <task>; staff will move to <task>." |
-| "This is about modernisation." | "The reasons are <cost, quality, safety, labour shortage>." |
-| "You will be trained when needed." | "Training starts on <date> and covers <content>." |
-| "If there is a problem, call maintenance." | "Stop, step back, call <name> at <extension>." |
+| "The robot will replace manual work." | "The robot will take over [task]; staff will move to [task]." |
+| "This is about modernisation." | "The reasons are [cost, quality, safety, labour shortage]." |
+| "You will be trained when needed." | "Training starts on [date] and covers [content]." |
+| "If there is a problem, call maintenance." | "Stop, step back, call [name] at [extension]." |

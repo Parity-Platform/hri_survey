@@ -1,6 +1,6 @@
 # Stakeholder map and recruitment plan
 
-Template. Replace text in angle brackets with local details.
+Template. Replace text in square brackets with local details.
 
 ## 1. Stakeholder map
 
@@ -40,17 +40,17 @@ Rules:
 
 > **Subject: Your view on robots in our production: invitation to a short consultation**
 >
-> <Company name> is considering the use of collaborative robots in <area / process>. No decision has been taken yet. Before any decision, <Company name> and <facilitating organisation> want to hear from the people who would work with this technology or be affected by it.
+> [Company name] is considering the use of collaborative robots in [area / process]. No decision has been taken yet. Before any decision, [Company name] and [facilitating organisation] want to hear from the people who would work with this technology or be affected by it.
 >
 > You can take part in one or more of the following:
 > - a 10 minute online or paper questionnaire
 > - a 30 to 45 minute confidential interview
 > - a 2 to 3 hour workshop with colleagues
 >
-> Participation is voluntary, takes place during paid working time and is confidential. Your manager will not know what you said. Results will be published in anonymous form and shared with all staff by <date>.
+> Participation is voluntary, takes place during paid working time and is confidential. Your manager will not know what you said. Results will be published in anonymous form and shared with all staff by [date].
 >
-> To take part, contact <name, phone, email> or use the sign-up sheet at <location> by <date>.
+> To take part, contact [name, phone, email] or use the sign-up sheet at [location] by [date].
 
 ## 4. Short notice for SME clients and community participants
 
-> <Company name> and <facilitating organisation> are running an open consultation on the possible use of collaborative robots in small manufacturing. Clients, residents, students and local organisations are invited to share their views through a short questionnaire or a public workshop on <date> at <venue>. Results will be published openly at <link>.
+> [Company name] and [facilitating organisation] are running an open consultation on the possible use of collaborative robots in small manufacturing. Clients, residents, students and local organisations are invited to share their views through a short questionnaire or a public workshop on [date] at [venue]. Results will be published openly at [link].

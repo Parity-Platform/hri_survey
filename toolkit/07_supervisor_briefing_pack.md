@@ -28,13 +28,13 @@ Supervisors should not be asked to announce a change they cannot explain. If an 
 
 | Question from staff | Suggested answer |
 |---|---|
-| "Will I lose my job?" | "No decision has been taken. The company has committed to <commitment>. If you are worried, say so in the questionnaire or interview: this concern is exactly what the consultation is for." |
-| "Why are we doing this?" | "The reasons given by management are <reasons>. If you see other reasons or risks, the consultation is the place to raise them." |
+| "Will I lose my job?" | "No decision has been taken. The company has committed to [commitment]. If you are worried, say so in the questionnaire or interview: this concern is exactly what the consultation is for." |
+| "Why are we doing this?" | "The reasons given by management are [reasons]. If you see other reasons or risks, the consultation is the place to raise them." |
 | "Is it safe?" | "Collaborative robots are designed to work near people with speed and force limits. Before any use, there will be training and a clear stop and escalation procedure. Tell us what would make you feel safe." |
-| "Will the robot be used to watch us?" | "The company's position is <position>. Ask the coordinator if this is not clear." |
+| "Will the robot be used to watch us?" | "The company's position is [position]. Ask the coordinator if this is not clear." |
 | "Who is to blame if the robot makes a mistake?" | "This will be set out in writing before any deployment. Your input on it is welcome." |
-| "I do not have time for this." | "Participation is in paid time. I will organise cover for <slot>." |
-| "Nobody will listen anyway." | "Results will be published to everyone by <date>, and management will explain how the input was used." |
+| "I do not have time for this." | "Participation is in paid time. I will organise cover for [slot]." |
+| "Nobody will listen anyway." | "Results will be published to everyone by [date], and management will explain how the input was used." |
 
 ## 4. Checklist
 
